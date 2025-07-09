@@ -3,7 +3,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Button } from "@/components/Button";
 import { useState } from "react";
 
-export default function HomePage() {
+export default function MNS01() {
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
