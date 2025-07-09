@@ -2,6 +2,7 @@
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Button } from "@/components/Button";
 import { useState } from "react";
+import { Alert } from "@/components/Alert";
 
 export default function MNS01() {
   const [password, setPassword] = useState("");
@@ -28,8 +29,11 @@ export default function MNS01() {
         <p className="text-center text-[#C1A98A] text-[70px] font-semibold">
           外国漁船漁獲情報システム
         </p>
-        <div className="w-[800px] h-[360px] flex flex-col items-center justify-between py-[80px] rounded-[20px] gap-[30px] bg-white mx-auto">
-          <div className="w-[540px] gap-[60px] flex flex-row justify-between">
+        <div className="w-[800px] min-h-[360px] max-h-[800px] flex flex-col items-center justify-between py-[80px] rounded-[20px] gap-[40px] bg-white mx-auto">
+          {errorPassword && errorRetypePassword && (
+            <Alert type="error" message="入力内容に誤りがあります。" />
+          )}
+          <div className="w-[540px] flex flex-row justify-between">
             <label className="min-w-[128px] text-[16px] text-black font-normal">
               新しいパスワード
             </label>
@@ -58,7 +62,7 @@ export default function MNS01() {
               </div>
               <div>
                 {errorPassword && (
-                  <p className="text-[#DC3545] text-[16px] font-medium">
+                  <p className="text-[#DC3545] text-[16px] font-medium mt-[4px]">
                     {errorPassword}
                   </p>
                 )}
@@ -95,7 +99,7 @@ export default function MNS01() {
               </div>
               <div>
                 {errorRetypePassword && (
-                  <p className="text-[#DC3545] text-[16px] font-medium">
+                  <p className="text-[#DC3545] text-[16px] font-medium mt-[4px]">
                     {errorRetypePassword}
                   </p>
                 )}
