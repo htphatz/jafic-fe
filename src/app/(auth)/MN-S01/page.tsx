@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
+  const [typedPassword, setTypedPassword] = useState("password");
 
   const handleSubmit = () => {
     if (username.trim() === "") {
@@ -16,6 +17,14 @@ export default function Login() {
     }
   };
 
+  const handleCheckShowPassword = (check: boolean) => {
+    if (check) {
+      setTypedPassword("password");
+    } else {
+      setTypedPassword("text");
+    }
+    setShowPassword(check);
+  }
   return (
     <div className="w-full h-[1080px] bg-[#103651]">
       <div className="w-full pt-[180px] gap-[50px] flex flex-col justify-between">
@@ -32,11 +41,10 @@ export default function Login() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className={`w-[352px] h-[34px] rounded-[8px] min-w-[250px] gap-[10px] border ${
-                  error
-                    ? "border-[#DC3545] shadow-[0_0_0_4px_rgba(239,68,68,0.25)]"
-                    : "border-[#DDE1EB] "
-                } py-[3px] px-[10px]`}
+                className={`w-[352px] h-[34px] rounded-[8px] min-w-[250px] gap-[10px] border ${error
+                  ? "border-[#DC3545] shadow-[0_0_0_4px_rgba(239,68,68,0.25)]"
+                  : "border-[#DDE1EB] "
+                  } py-[3px] px-[10px]`}
               />
               {error && (
                 <p className="text-[#DC3545] text-[16px] font-medium">
@@ -52,17 +60,17 @@ export default function Login() {
             </label>
             <div className="relative h-[34px] w-[352px]">
               <input
-                type="password"
+                type={typedPassword}
                 className="w-full h-full rounded-[8px] min-w-[250px] border-[1px] border-[#DDE1EB] py-[3px] px-[10px]"
               />
               <div
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-[#60656E] cursor-pointer"
-                onClick={() => setShowPassword(!showPassword)}
+                onClick={() => handleCheckShowPassword(!showPassword)}
               >
                 {showPassword ? (
-                  <FaRegEye width={25} height={20} />
-                ) : (
                   <FaRegEyeSlash width={25} height={20} />
+                ) : (
+                  <FaRegEye width={25} height={20} />
                 )}
               </div>
             </div>
