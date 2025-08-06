@@ -3,7 +3,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Button } from "@/components/Button";
 import { useState } from "react";
 
-export default function MNS01() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -67,7 +67,10 @@ export default function MNS01() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center" onClick={handleSubmit}>
+          <div
+            className="flex justify-center rounded-[8px] text-white bg-[#0C8CE9]"
+            onClick={handleSubmit}
+          >
             <Button content="ログイン"></Button>
           </div>
           <div>

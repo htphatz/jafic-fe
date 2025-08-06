@@ -4,7 +4,7 @@ import { Button } from "@/components/Button";
 import { useState } from "react";
 import { Alert } from "@/components/Alert";
 
-export default function MNS01() {
+export default function ChangePassword() {
   const [password, setPassword] = useState("");
   const [retypePassword, setRetypePassword] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
@@ -106,7 +106,10 @@ export default function MNS01() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center" onClick={handleSubmit}>
+          <div
+            className="flex justify-center rounded-[8px] text-white bg-[#0C8CE9]"
+            onClick={handleSubmit}
+          >
             <Button content="設定"></Button>
           </div>
           <div>
